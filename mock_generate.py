@@ -8,14 +8,18 @@ from firebase_admin import credentials, storage, firestore
 #  - TONE_NAME                 (optional; default "Anchor Calm")
 
 def load_tones():
+    import glob, json, os, sys
     tones = {}
     for path in glob.glob(os.path.join("tones", "*.json")):
         try:
-            with open(path, "r", encoding="utf-8") as f:
+            # tolerate UTF-8 with or without BOM
+            with open(path, "r", encoding="utf-8-sig") as f:
                 data = json.load(f)
                 name = data.get("name")
                 if name:
                     tones[name] = data
+                else:
+                    print(f"[warn] Tone file {path} missing 'name' field", file=sys.stderr)
         except Exception as e:
             print(f"[warn] Failed to load tone file {path}: {e}", file=sys.stderr)
     return tones
