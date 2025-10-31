@@ -1,26 +1,24 @@
 ﻿name: generate-daily-brief
 on:
   schedule:
-    - cron: "0 3 * * *"   # 03:00 UTC nightly
-  workflow_dispatch:       # allow manual run
+    - cron: "0 3 * * *"
+  workflow_dispatch:
 
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
       - name: Generate mock brief and upload
         env:
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TODAI_ALPHA }}
           FB_BUCKET: todai-alpha.firebasestorage.app
+          TONE_NAME: Anchor Calm   # change to Hapipod Warm or Analytical Neutral if you like
         run: python mock_generate.py
