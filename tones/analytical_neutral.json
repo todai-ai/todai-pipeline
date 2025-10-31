@@ -1,0 +1,25 @@
+﻿{
+  "name": "Analytical Neutral",
+  "description": "Calm, structured tone for analysis and business coverage.",
+  "voice_directives": [
+    "Crisp sentence boundaries and active verbs.",
+    "No embellishment; keep rhythm consistent.",
+    "Use numeric anchors and definitions early."
+  ],
+  "prompt_templates": {
+    "intro": "Define the problem and the stakes; cite key figures.",
+    "transition": "Move from cause to effect; spotlight mechanisms.",
+    "closing": "Conclude with what changes next and for whom."
+  },
+  "tts_mapping": {
+    "provider": "elevenlabs",
+    "voice_id": "REPLACE_ME",
+    "speed": 0.98,
+    "pitch": 0.98
+  },
+  "analytics": {
+    "avg_sentence_length": 16,
+    "lexical_tone": "analytic",
+    "audience_target": "business"
+  }
+}

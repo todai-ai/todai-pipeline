@@ -1,0 +1,25 @@
+﻿{
+  "name": "Hapipod Warm",
+  "description": "Friendly, uplifting tone for culture and discovery segments.",
+  "voice_directives": [
+    "Conversational phrasing with light enthusiasm.",
+    "Use short pauses between story changes.",
+    "Elevate human texture and craft details."
+  ],
+  "prompt_templates": {
+    "intro": "Invite the listener in; set an accessible mood.",
+    "transition": "Use soft connectors (\"next up\", \"we also found\").",
+    "closing": "End with a gentle takeaway or curiosity hook."
+  },
+  "tts_mapping": {
+    "provider": "elevenlabs",
+    "voice_id": "REPLACE_ME",
+    "speed": 1.02,
+    "pitch": 1.03
+  },
+  "analytics": {
+    "avg_sentence_length": 13,
+    "lexical_tone": "warm",
+    "audience_target": "lifestyle"
+  }
+}
